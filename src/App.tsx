@@ -26,7 +26,7 @@ import { LOVER_QUESTIONS, FRIEND_QUESTIONS } from './constants';
 
 type Theme = 'FRIEND' | 'LOVER' | null;
 type Mode = 'RANDOM' | 'CUSTOM' | null;
-type Module = '认识我们' | '认识我和你';
+type Module = '关于我们' | '关于我和你';
 
 interface GameConfig {
   theme: Theme;
@@ -83,7 +83,7 @@ export default function App() {
   const [gameStep, setGameStep] = useState<'HOME' | 'CONFIG' | 'PLAY' | 'END'>('HOME');
   const [config, setConfig] = useState<GameConfig>({
     theme: null,
-    modules: ['认识我们'],
+    modules: ['关于我们'],
     mode: 'RANDOM'
   });
 
@@ -217,11 +217,11 @@ export default function App() {
         className="text-center"
       >
         <h1 className="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 mb-4 tracking-tighter drop-shadow-sm">
-          深度对话辅助牌
+          挚爱夜话-辅助卡牌
         </h1>
         <div className="h-1.5 w-24 bg-gray-900 mx-auto rounded-full mb-8 opacity-20" />
         <p className="text-gray-500 text-lg md:text-xl font-medium max-w-lg mx-auto leading-relaxed">
-          在对话中探索灵魂的深度，<br/>建立更真实、更亲密的人际联结。
+          这是两款旨在帮助你们展开深度对话的卡牌，<br/>通过精心设计的话题与提问，帮助你们看见彼此，也看见存在于你们之间的关系。
         </p>
       </motion.div>
       
@@ -242,7 +242,7 @@ export default function App() {
           </div>
           <div className="text-center">
             <h3 className="text-3xl font-black text-blue-800">你好朋友</h3>
-            <p className="text-blue-500/60 mt-3 font-medium">探索友谊的深度，发现彼此未曾言说的故事</p>
+            <p className="text-blue-500/60 mt-3 font-medium">适合和朋友深度畅聊使用的卡牌</p>
           </div>
           <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-blue-100 rounded-full opacity-20 group-hover:scale-150 transition-transform" />
         </motion.button>
@@ -263,7 +263,7 @@ export default function App() {
           </div>
           <div className="text-center">
             <h3 className="text-3xl font-black text-rose-800">你好爱人</h3>
-            <p className="text-rose-500/60 mt-3 font-medium">拉近亲密关系，在对话中建立更深的情感联结</p>
+            <p className="text-rose-500/60 mt-3 font-medium">适合与爱人深度畅聊使用的卡牌</p>
           </div>
           <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-rose-100 rounded-full opacity-20 group-hover:scale-150 transition-transform" />
         </motion.button>
@@ -300,7 +300,7 @@ export default function App() {
               <span className={`text-[10px] font-bold ${themeText} bg-white px-3 py-1 rounded-full border ${themeBorder}/20`}>可多选</span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {['认识我们', '认识我和你'].map((m) => {
+              {['关于我们', '关于我和你'].map((m) => {
                 const isSelected = config.modules.includes(m as Module);
                 return (
                   <button
@@ -353,7 +353,7 @@ export default function App() {
                 </div>
                 <div>
                   <span className="font-black text-xl block">随机抽取</span>
-                  <span className={`text-xs mt-1 block font-medium ${config.mode === 'RANDOM' ? 'text-white/70' : 'text-gray-400'}`}>从卡池中随机抽取指定数量卡牌</span>
+                  <span className={`text-xs mt-1 block font-medium ${config.mode === 'RANDOM' ? 'text-white/70' : 'text-gray-400'}`}>每次可选盲抽1-10张，适合选择恐惧症</span>
                 </div>
                 {/* Removed dot indicator */}
               </button>
@@ -370,7 +370,7 @@ export default function App() {
                 </div>
                 <div>
                   <span className="font-black text-xl block">自定义翻牌</span>
-                  <span className={`text-xs mt-1 block font-medium ${config.mode === 'CUSTOM' ? 'text-white/70' : 'text-gray-400'}`}>所有卡牌罗列在桌面，由玩家点击翻开</span>
+                  <span className={`text-xs mt-1 block font-medium ${config.mode === 'CUSTOM' ? 'text-white/70' : 'text-gray-400'}`}>牌面罗列由你选择，适合选择恐怖分子</span>
                 </div>
                 {/* Removed dot indicator */}
               </button>
@@ -440,7 +440,7 @@ export default function App() {
                             {currentTheme === 'LOVER' ? <Heart size={72} className="text-white" fill="currentColor" /> : <Users size={72} className="text-white" fill="currentColor" />}
                           </div>
                           <div className="flex flex-col items-center">
-                            <span className="text-white/40 text-[10px] font-black tracking-[0.6em] uppercase">DEEP DIALOGUE</span>
+                            <span className="text-white/40 text-[10px] font-black tracking-[0.6em] uppercase">挚爱夜话</span>
                             <div className="h-px w-12 bg-white/20 mt-2" />
                           </div>
                         </div>
@@ -530,7 +530,7 @@ export default function App() {
                         <div className="p-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-lg">
                           {currentTheme === 'LOVER' ? <Heart size={32} className="text-white" fill="currentColor" /> : <Users size={32} className="text-white" fill="currentColor" />}
                         </div>
-                        <span className="text-white/40 text-[8px] font-black tracking-[0.4em] uppercase">DEEP DIALOGUE</span>
+                        <span className="text-white/40 text-[8px] font-black tracking-[0.4em] uppercase">挚爱夜话</span>
                       </div>
                       <div className="absolute inset-3 border border-white/10 rounded-[1rem]" />
                     </div>
@@ -555,7 +555,7 @@ export default function App() {
                       </div>
 
                       <div className="mb-1 sm:mb-2 shrink-0">
-                        <span className="text-[7px] sm:text-[8px] font-bold text-gray-300 tracking-widest uppercase opacity-40">Auxiliary Cards</span>
+                        <span className="text-[7px] sm:text-[8px] font-bold text-gray-300 tracking-widest uppercase opacity-40">挚爱夜话-辅助卡牌</span>
                       </div>
                     </div>
                   </motion.div>
@@ -654,7 +654,7 @@ export default function App() {
             <Layers size={28} />
           </motion.div>
           <div className="flex flex-col">
-            <span className="font-black text-2xl tracking-tighter leading-none">DEEP DIALOGUE</span>
+            <span className="font-black text-2xl tracking-tighter leading-none">挚爱夜话</span>
             <span className="text-[10px] font-black text-gray-400 tracking-[0.4em] uppercase mt-1">辅助牌系统</span>
           </div>
         </div>
@@ -700,39 +700,70 @@ export default function App() {
       </main>
 
       {/* Modals */}
-      <Modal isOpen={showThemeRules} onClose={() => setShowThemeRules(false)} title={`${currentTheme === 'LOVER' ? '你好爱人' : '你好朋友'} - 游戏规则`}>
+      <Modal isOpen={showThemeRules} onClose={() => setShowThemeRules(false)} title={`${currentTheme === 'LOVER' ? '你好爱人' : '你好朋友'} - 聊法推荐`}>
         <div className="space-y-6 text-gray-600 leading-relaxed">
           <section>
             <h4 className="font-black text-gray-900 mb-4 flex items-center gap-2">
               <div className={`w-2 h-6 bg-${currentTheme === 'LOVER' ? 'rose' : 'blue'}-600 rounded-full`} />
-              推荐聊法
+              板块介绍
+            </h4>
+            <div className="space-y-3 mb-6">
+              <div className="p-4 rounded-2xl bg-gray-50 border border-gray-100">
+                <p className="font-black text-gray-900 mb-1">关于我们：</p>
+                <p className="text-sm">围绕“我们”的问题，聚焦关系与共同经历</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-gray-50 border border-gray-100">
+                <p className="font-black text-gray-900 mb-1">关于我和你：</p>
+                <p className="text-sm">围绕“认识彼此”的问题，聚焦来时路和所向处</p>
+              </div>
+              <p className="text-xs text-gray-400 text-center italic">板块可根据需求选取</p>
+            </div>
+
+            <h4 className="font-black text-gray-900 mb-4 flex items-center gap-2">
+              <div className={`w-2 h-6 bg-${currentTheme === 'LOVER' ? 'rose' : 'blue'}-600 rounded-full`} />
+              翻牌模式
+            </h4>
+            <div className="space-y-3 mb-6">
+              <p className="text-sm"><span className="font-bold text-gray-800">随机抽取：</span>每次可选盲抽1-10张，适合选择恐惧症</p>
+              <p className="text-sm"><span className="font-bold text-gray-800">自定义翻牌：</span>牌面罗列由你选择，适合选择恐怖分子</p>
+            </div>
+
+            <h4 className="font-black text-gray-900 mb-4 flex items-center gap-2">
+              <div className={`w-2 h-6 bg-${currentTheme === 'LOVER' ? 'rose' : 'blue'}-600 rounded-full`} />
+              聊法推荐
             </h4>
             <div className="space-y-5">
               <div className={`p-4 rounded-2xl bg-${currentTheme === 'LOVER' ? 'rose' : 'blue'}-50/50 border border-${currentTheme === 'LOVER' ? 'rose' : 'blue'}-100`}>
                 <p className={`font-black text-${currentTheme === 'LOVER' ? 'rose' : 'blue'}-900 mb-1`}>单人聊法：</p>
-                <p className="text-sm">适合自我梳理与反思。抽牌盲答：随机抽取卡牌回答；牌面全开：找到有感觉的内容回答。</p>
+                <p className="text-sm">
+                  {currentTheme === 'LOVER' 
+                    ? '适合想针对真实爱情关系进行自我梳理与反思的人；也适合oc妈或同人厨子用来寻找cp向的创作思路灵感' 
+                    : '适合想针对真实友谊关系进行自我梳理与反思的人；也适合oc妈或同人厨子用来寻找cb向的创作思路灵感'}
+                </p>
               </div>
               <div className={`p-4 rounded-2xl bg-${currentTheme === 'LOVER' ? 'rose' : 'blue'}-50/50 border border-${currentTheme === 'LOVER' ? 'rose' : 'blue'}-100`}>
-                <p className={`font-black text-${currentTheme === 'LOVER' ? 'rose' : 'blue'}-900 mb-1`}>双人聊法：</p>
-                <ul className="list-disc list-inside text-sm space-y-2 mt-2">
-                  <li><span className="font-bold">一题一答：</span>随机抽取1张回答。</li>
-                  <li><span className="font-bold">三问一追：</span>抽取3张，回答后可追问。</li>
-                  <li><span className="font-bold">多里挑一：</span>抽取多张，从中选择1题。</li>
-                  <li><span className="font-bold">百里挑一：</span>牌面全开，从中选择1题。</li>
-                </ul>
+                <p className={`font-black text-${currentTheme === 'LOVER' ? 'rose' : 'blue'}-900 mb-1`}>
+                  {currentTheme === 'LOVER' ? '双人聊法：' : '双人/多人聊法：'}
+                </p>
+                <p className="text-sm">
+                  {currentTheme === 'LOVER' 
+                    ? '本卡牌非“纯娱乐向”，建议信任关系到一定程度后再使用~' 
+                    : '本卡牌非“纯娱乐向”，因此不适用于关系尚处浅层次的多人/双人聚会，建议信任关系到一定程度后再使用~'}
+                </p>
               </div>
               
-              {currentTheme === 'FRIEND' ? (
-                <div className="flex items-start gap-3 p-4 bg-blue-50 rounded-2xl border border-blue-100">
-                  <Info className="text-blue-500 shrink-0 mt-0.5" size={18} />
-                  <p className="text-xs text-blue-800 font-medium">注意：本卡牌非“纯娱乐向”，更适合关系紧密、愿意深度交流的友谊小分队。</p>
-                </div>
-              ) : (
-                <div className="flex items-start gap-3 p-4 bg-rose-50 rounded-2xl border border-rose-100">
-                  <Heart className="text-rose-500 shrink-0 mt-0.5" size={18} />
-                  <p className="text-xs text-rose-800 font-medium">建议：在安静、私密的环境下进行。保持诚实与脆弱，这是建立深层亲密感的关键。</p>
-                </div>
-              )}
+              <div className={`p-4 rounded-2xl bg-gray-50 border border-gray-100`}>
+                <p className="font-black text-gray-900 mb-2">聊法灵感：</p>
+                <ul className="list-disc list-inside text-sm space-y-2 mb-3">
+                  <li><span className="font-bold">一题一答：</span>随机抽取1张回答</li>
+                  <li><span className="font-bold">三问一追：</span>抽取3张，回答后可追问</li>
+                  <li><span className="font-bold">多里挑一：</span>抽取多张，从中选择1题</li>
+                  <li><span className="font-bold">百里挑一：</span>牌面全开，从中选择1题</li>
+                </ul>
+                <p className="text-[11px] text-gray-400 leading-relaxed italic border-t border-gray-200 pt-3">
+                  *建议引入“跳过”机制，开始前约定每人的“跳过”次数，请充分尊重每个“跳过”的决定，不追问、不责怪。
+                </p>
+              </div>
             </div>
           </section>
           <button 
@@ -744,26 +775,22 @@ export default function App() {
         </div>
       </Modal>
 
-      <Modal isOpen={showRules} onClose={() => setShowRules(false)} title="深度对话辅助牌 - 游戏规则">
+      <Modal isOpen={showRules} onClose={() => setShowRules(false)} title="挚爱夜话-辅助卡牌">
         <div className="space-y-6 text-gray-600 leading-relaxed">
           <section>
-            <h4 className="font-bold text-gray-900 mb-2">关于游戏</h4>
-            <p>这是一款旨在促进深度交流的卡牌游戏。通过精心设计的问题，帮助你与朋友或伴侣建立更深的情感联结，探索未曾触及的话题。</p>
+            <h4 className="font-black text-gray-900 mb-2">关于卡牌</h4>
+            <p>这是两款旨在帮助你们展开深度对话的卡牌，通过精心设计的话题与提问，帮助你们看见彼此，也看见存在于你们之间的关系。</p>
           </section>
-          <section>
-            <h4 className="font-bold text-gray-900 mb-2">玩法推荐</h4>
-            <ul className="list-disc list-inside space-y-2">
-              <li><span className="font-bold text-gray-800">单人聊法：</span>适合自我梳理与反思，作为寻找灵感、丰满故事的工具。</li>
-              <li><span className="font-bold text-gray-800">双人聊法：</span>建议引入“跳过”机制，充分尊重每个“跳过”的决定，不追问、不责怪。</li>
-              <li><span className="font-bold text-gray-800">多人聊法：</span>适合关系紧密的友谊小分队，非纯娱乐向，适合深度社交。</li>
-            </ul>
-          </section>
-          <section>
-            <h4 className="font-bold text-gray-900 mb-2">游戏模式</h4>
-            <ul className="list-disc list-inside space-y-2">
-              <li><span className="font-bold text-gray-800">随机抽取：</span>每次抽取1-10张，适合盲抽盲答。</li>
-              <li><span className="font-bold text-gray-800">自定义翻牌：</span>牌面罗列在桌面，由你选择想回答的内容。</li>
-            </ul>
+          <section className="space-y-4">
+            <div className="p-4 bg-blue-50 rounded-2xl border border-blue-100">
+              <p className="font-black text-blue-900 mb-1">你好朋友：</p>
+              <p className="text-sm">适合和朋友深度畅聊使用的卡牌</p>
+            </div>
+            <div className="p-4 bg-rose-50 rounded-2xl border border-rose-100">
+              <p className="font-black text-rose-900 mb-1">你好爱人：</p>
+              <p className="text-sm">适合与爱人深度畅聊使用的卡牌</p>
+            </div>
+            <p className="text-xs text-gray-400 italic">*如果你觉得好的爱人就会和朋友一般，或者好的朋友可能会胜过爱人，也可以跳出卡牌的对象限制~</p>
           </section>
           <button 
             onClick={() => setShowRules(false)}
@@ -862,7 +889,7 @@ export default function App() {
               </div>
 
               <div className="mb-4 md:mb-6 shrink-0">
-                <span className="text-[8px] md:text-[10px] font-bold text-gray-300 tracking-[0.3em] uppercase opacity-40">Deep Dialogue System</span>
+                <span className="text-[8px] md:text-[10px] font-bold text-gray-300 tracking-[0.3em] uppercase opacity-40">挚爱夜话-辅助卡牌</span>
               </div>
 
               <button 
@@ -913,7 +940,7 @@ export default function App() {
                     </div>
 
                     <div className="mb-1 sm:mb-2 shrink-0">
-                      <span className="text-[8px] sm:text-[9px] font-bold text-gray-300 tracking-widest uppercase opacity-60">Deep Dialogue Auxiliary</span>
+                      <span className="text-[8px] sm:text-[9px] font-bold text-gray-300 tracking-widest uppercase opacity-60">挚爱夜话-辅助卡牌</span>
                     </div>
                   </motion.div>
                 ))}
