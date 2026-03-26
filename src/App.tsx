@@ -512,7 +512,7 @@ export default function App() {
                     className="relative w-full h-full transform-style-3d"
                   >
                     {/* Front (Back of card) */}
-                    <div className={`absolute inset-0 backface-hidden ${currentTheme === 'LOVER' ? 'bg-gradient-to-br from-rose-400 via-rose-500 to-rose-600' : 'bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600'} rounded-[1.5rem] border-2 border-white/80 shadow-xl flex items-center justify-center overflow-hidden`}>
+                    <div className={`absolute inset-0 backface-hidden ${currentTheme === 'LOVER' ? 'bg-gradient-to-br from-rose-400 via-rose-500 to-rose-600' : 'bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600'} rounded-[1.5rem] border-2 border-white/80 shadow-xl flex items-center justify-center overflow-hidden`} style={{ transform: 'translateZ(1px)', WebkitTransform: 'translateZ(1px)' }}>
                       <div className="absolute inset-0 opacity-[0.12]">
                         <svg width="100%" height="100%">
                           <defs>
@@ -535,23 +535,27 @@ export default function App() {
                       <div className="absolute inset-3 border border-white/10 rounded-[1rem]" />
                     </div>
                     {/* Back (Front of card) */}
-                    <div className="absolute inset-0 backface-hidden bg-white rounded-[1.5rem] border-2 border-gray-100 shadow-xl p-6 flex flex-col justify-between items-center text-center rotate-y-180 overflow-hidden">
+                    <div className="absolute inset-0 backface-hidden bg-white rounded-[1.5rem] border-2 border-gray-100 shadow-xl p-4 sm:p-6 flex flex-col items-center text-center rotate-y-180 overflow-hidden" style={{ transform: 'rotateY(180deg) translateZ(1px)', WebkitTransform: 'rotateY(180deg) translateZ(1px)' }}>
                       {/* Corner Decorations */}
                       <div className={`absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 ${currentTheme === 'LOVER' ? 'border-rose-100' : 'border-blue-100'} rounded-tl-md`} />
                       <div className={`absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 ${currentTheme === 'LOVER' ? 'border-rose-100' : 'border-blue-100'} rounded-tr-md`} />
                       <div className={`absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 ${currentTheme === 'LOVER' ? 'border-rose-100' : 'border-blue-100'} rounded-bl-md`} />
                       <div className={`absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 ${currentTheme === 'LOVER' ? 'border-rose-100' : 'border-blue-100'} rounded-br-md`} />
 
-                      <div className="flex flex-col items-center mt-2">
-                        <div className={`p-2 ${currentTheme === 'LOVER' ? 'bg-rose-50 text-rose-400' : 'bg-blue-50 text-blue-400'} rounded-xl mb-2 shadow-sm`}>
-                          {currentTheme === 'LOVER' ? <Heart size={20} /> : <Users size={20} />}
+                      <div className="flex flex-col items-center mt-1 sm:mt-2 shrink-0">
+                        <div className={`p-1.5 sm:p-2 ${currentTheme === 'LOVER' ? 'bg-rose-50 text-rose-400' : 'bg-blue-50 text-blue-400'} rounded-xl mb-1 sm:mb-2 shadow-sm`}>
+                          {currentTheme === 'LOVER' ? <Heart size={16} className="sm:w-5 sm:h-5" /> : <Users size={16} className="sm:w-5 sm:h-5" />}
                         </div>
-                        <span className={`text-[8px] font-black ${currentTheme === 'LOVER' ? 'text-rose-300' : 'text-blue-300'} uppercase tracking-[0.2em] mb-1`}>{card.module}</span>
+                        <span className={`text-[7px] sm:text-[8px] font-black ${currentTheme === 'LOVER' ? 'text-rose-300' : 'text-blue-300'} uppercase tracking-[0.2em] mb-1`}>{card.module}</span>
                         <div className={`w-6 h-0.5 ${currentTheme === 'LOVER' ? 'bg-rose-100' : 'bg-blue-100'} rounded-full`} />
                       </div>
-                      <p className="text-sm font-black text-gray-800 leading-tight px-2 drop-shadow-sm">{card.question}</p>
-                      <div className="mb-2">
-                        <span className="text-[8px] font-bold text-gray-300 tracking-widest uppercase opacity-40">Auxiliary Cards</span>
+                      
+                      <div className="flex-1 flex items-center justify-center w-full min-h-0">
+                        <p className="text-xs sm:text-sm font-black text-gray-800 leading-tight px-1 sm:px-2 drop-shadow-sm line-clamp-6">{card.question}</p>
+                      </div>
+
+                      <div className="mb-1 sm:mb-2 shrink-0">
+                        <span className="text-[7px] sm:text-[8px] font-bold text-gray-300 tracking-widest uppercase opacity-40">Auxiliary Cards</span>
                       </div>
                     </div>
                   </motion.div>
@@ -836,7 +840,7 @@ export default function App() {
               initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.5, opacity: 0 }}
-              className="w-full max-w-sm aspect-[3/4] bg-white rounded-[2.5rem] border-4 border-white shadow-2xl p-10 flex flex-col justify-between items-center text-center relative overflow-hidden"
+              className="w-full max-w-[90vw] md:max-w-sm aspect-[3/4] bg-white rounded-[2.5rem] border-4 border-white shadow-2xl p-6 md:p-10 flex flex-col items-center text-center relative overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Corner Decorations */}
@@ -845,18 +849,20 @@ export default function App() {
               <div className={`absolute bottom-4 left-4 w-8 h-8 border-b-4 border-l-4 ${currentTheme === 'LOVER' ? 'border-rose-100' : 'border-blue-100'} rounded-bl-xl`} />
               <div className={`absolute bottom-4 right-4 w-8 h-8 border-b-4 border-r-4 ${currentTheme === 'LOVER' ? 'border-rose-100' : 'border-blue-100'} rounded-br-xl`} />
 
-              <div className="flex flex-col items-center mt-6">
-                <div className={`p-5 ${currentTheme === 'LOVER' ? 'bg-rose-50 text-rose-400' : 'bg-blue-50 text-blue-400'} rounded-3xl mb-4 shadow-sm`}>
-                  {currentTheme === 'LOVER' ? <Heart size={48} /> : <Users size={48} />}
+              <div className="flex flex-col items-center mt-4 md:mt-6 shrink-0">
+                <div className={`p-3 md:p-5 ${currentTheme === 'LOVER' ? 'bg-rose-50 text-rose-400' : 'bg-blue-50 text-blue-400'} rounded-3xl mb-2 md:mb-4 shadow-sm`}>
+                  {currentTheme === 'LOVER' ? <Heart size={32} className="md:w-12 md:h-12" /> : <Users size={32} className="md:w-12 md:h-12" />}
                 </div>
-                <span className={`text-xs font-black ${currentTheme === 'LOVER' ? 'text-rose-300' : 'text-blue-300'} uppercase tracking-[0.4em] mb-2`}>{zoomedCard.module}</span>
-                <div className={`w-12 h-1 ${currentTheme === 'LOVER' ? 'bg-rose-100' : 'bg-blue-100'} rounded-full`} />
+                <span className={`text-[10px] md:text-xs font-black ${currentTheme === 'LOVER' ? 'text-rose-300' : 'text-blue-300'} uppercase tracking-[0.4em] mb-1 md:mb-2`}>{zoomedCard.module}</span>
+                <div className={`w-10 md:w-12 h-0.5 md:h-1 ${currentTheme === 'LOVER' ? 'bg-rose-100' : 'bg-blue-100'} rounded-full`} />
               </div>
 
-              <p className="text-2xl font-black text-gray-800 leading-tight px-4 drop-shadow-sm">{zoomedCard.question}</p>
+              <div className="flex-1 flex items-center justify-center w-full">
+                <p className="text-lg md:text-2xl font-black text-gray-800 leading-tight px-2 md:px-4 drop-shadow-sm">{zoomedCard.question}</p>
+              </div>
 
-              <div className="mb-6">
-                <span className="text-[10px] font-bold text-gray-300 tracking-[0.3em] uppercase opacity-40">Deep Dialogue System</span>
+              <div className="mb-4 md:mb-6 shrink-0">
+                <span className="text-[8px] md:text-[10px] font-bold text-gray-300 tracking-[0.3em] uppercase opacity-40">Deep Dialogue System</span>
               </div>
 
               <button 
@@ -890,22 +896,24 @@ export default function App() {
                     initial={{ opacity: 0, scale: 0.9, y: 20 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     transition={{ delay: idx * 0.05, duration: 0.4 }}
-                    className="bg-white rounded-[2rem] aspect-[3/4] shadow-2xl p-8 flex flex-col justify-between items-center text-center relative overflow-hidden border-4 border-white/50"
+                    className="bg-white rounded-[2rem] aspect-[3/4] shadow-2xl p-6 sm:p-8 flex flex-col items-center text-center relative overflow-hidden border-4 border-white/50"
                   >
-                    <div className="flex flex-col items-center mt-2">
-                      <div className={`p-3 ${currentTheme === 'LOVER' ? 'bg-rose-50 text-rose-300' : 'bg-blue-50 text-blue-300'} rounded-2xl mb-3`}>
-                        {currentTheme === 'LOVER' ? <Heart size={36} /> : <Users size={36} />}
+                    <div className="flex flex-col items-center mt-1 sm:mt-2 shrink-0">
+                      <div className={`p-2 sm:p-3 ${currentTheme === 'LOVER' ? 'bg-rose-50 text-rose-300' : 'bg-blue-50 text-blue-300'} rounded-2xl mb-2 sm:mb-3`}>
+                        {currentTheme === 'LOVER' ? <Heart size={28} className="sm:w-9 sm:h-9" /> : <Users size={28} className="sm:w-9 sm:h-9" />}
                       </div>
-                      <span className={`text-[10px] font-black ${currentTheme === 'LOVER' ? 'text-rose-200' : 'text-blue-200'} uppercase tracking-[0.4em] mb-2`}>{card.module}</span>
-                      <div className={`w-8 h-1 ${currentTheme === 'LOVER' ? 'bg-rose-50' : 'bg-blue-50'} rounded-full`} />
+                      <span className={`text-[8px] sm:text-[10px] font-black ${currentTheme === 'LOVER' ? 'text-rose-200' : 'text-blue-200'} uppercase tracking-[0.4em] mb-1 sm:mb-2`}>{card.module}</span>
+                      <div className={`w-6 sm:w-8 h-0.5 sm:h-1 ${currentTheme === 'LOVER' ? 'bg-rose-50' : 'bg-blue-50'} rounded-full`} />
                     </div>
                     
-                    <h3 className="text-lg md:text-xl font-black text-gray-800 leading-tight px-2">
-                      {card.question}
-                    </h3>
+                    <div className="flex-1 flex items-center justify-center w-full">
+                      <h3 className="text-base sm:text-lg md:text-xl font-black text-gray-800 leading-tight px-2">
+                        {card.question}
+                      </h3>
+                    </div>
 
-                    <div className="mb-2">
-                      <span className="text-[9px] font-bold text-gray-300 tracking-widest uppercase opacity-60">Deep Dialogue Auxiliary</span>
+                    <div className="mb-1 sm:mb-2 shrink-0">
+                      <span className="text-[8px] sm:text-[9px] font-bold text-gray-300 tracking-widest uppercase opacity-60">Deep Dialogue Auxiliary</span>
                     </div>
                   </motion.div>
                 ))}
@@ -924,10 +932,14 @@ export default function App() {
       </AnimatePresence>
 
       <style dangerouslySetInnerHTML={{ __html: `
-        .perspective-1000 { perspective: 1000px; }
-        .transform-style-3d { transform-style: preserve-3d; }
-        .backface-hidden { backface-visibility: hidden; }
-        .rotate-y-180 { transform: rotateY(180deg); }
+        .perspective-1000 { perspective: 1000px; -webkit-perspective: 1000px; }
+        .transform-style-3d { transform-style: preserve-3d; -webkit-transform-style: preserve-3d; }
+        .backface-hidden { 
+          backface-visibility: hidden; 
+          -webkit-backface-visibility: hidden;
+          -webkit-transform-style: preserve-3d;
+        }
+        .rotate-y-180 { transform: rotateY(180deg); -webkit-transform: rotateY(180deg); }
       `}} />
     </div>
   );
